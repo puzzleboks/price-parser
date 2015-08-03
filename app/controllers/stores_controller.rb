@@ -39,8 +39,9 @@ class StoresController < ApplicationController
     def destroy
       @store = Store.find(params[:id])
       @store.destroy
-      redirect_to stores_path
-      end
+      redirect_to user_stores_path
+    end
+
     private
     def store_params
       params.require(:store).permit(:name)

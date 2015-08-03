@@ -12,5 +12,34 @@
 <ul>
   <% @stores.each do |store| %>
   <li><%= store.name %></li>
+  <%= link_to("Show", user_store_path(current_user, store)) %>
+  <%= link_to("Edit", '#', :class => 'action edit') %>
+  <%= link_to("Delete", '#', :class => 'action delete') %>
   <% end %>
 </ul>
+
+
+<!-- <div class="pets index">
+  <h2>User: <%= current_user.email %></h2>
+
+  <%= link_to("Add New Pet", '#', :class => 'action new') %>
+
+  <table class="listing" summary="Pet list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Pet</th>
+      <th>Actions</th>
+    </tr>
+    <% @pets.each do |pet| %>
+    <tr>
+      <td><%= pet.breed %></td>
+      <td><%= pet.name %></td>
+      <td class="actions">
+        <%= link_to("Show", user_pet_path(current_user, pet), :class => 'action show') %>
+        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div> -->

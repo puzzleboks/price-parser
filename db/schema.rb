@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150803151645) do
   enable_extension "plpgsql"
 
   create_table "stores", force: :cascade do |t|
+    # t.belongs_to "user"
     t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at", null: false
