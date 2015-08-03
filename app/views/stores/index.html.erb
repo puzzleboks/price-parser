@@ -1,0 +1,16 @@
+<h1>Listing your stores</h1>
+<%= form_for([current_user, current_user.stores.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<ul>
+  <% @stores.each do |store| %>
+  <li><%= store.body %></li>
+  <% end %>
+</ul>
