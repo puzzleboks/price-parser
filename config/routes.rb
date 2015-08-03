@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # set up root route for devise to reroute to after successful login
+  root 'stores#index'
+
+  # alias user routes for account
+  devise_for :users, :path => 'accounts'
+
+  # next post resource under user
+  resources :users do
+    resources :stores
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
