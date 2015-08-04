@@ -3,8 +3,16 @@ class StoresController < ApplicationController
     before_action :authenticate_user!
 
     # another devise helper method that retrieves the user object that has been authenticated
+    # def index
+    #   @stores = current_user.stores
+    # end
+
     def index
-      @stores = current_user.stores
+      if params[:user_id]  # Jesse's proposed solution
+        @stores = Store.where(user_id: params[:user_id])
+      else
+        @stores = Store.all
+      end
     end
 
     def show
