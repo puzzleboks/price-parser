@@ -1,7 +1,7 @@
 <h1>Show Store Details</h1>
 <%# @store = Store.where(user_id: params[:user_id]) %>
 <ul>
-<li><%= @store.name %></li> <%= link_to("Edit", '#', :class => 'action edit') %>
+<li><%= @store.name %></li> <%= link_to("Edit", edit_store_path(current_user, @store), :class => 'action edit') %>
 </ul>
 
 

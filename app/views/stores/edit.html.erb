@@ -1,1 +1,10 @@
 <h1>Edit Store</h1>
+
+<%= form_for @store do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+
+<% end %>
