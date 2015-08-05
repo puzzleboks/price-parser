@@ -1,9 +1,9 @@
-<h1>Edit Store</h1>
+<h1>Edit Store: <%= @store.name %> </h1>
 
 <%= form_for @store do |f| %>
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :value => params[:store] %>
 
   <%= f.submit %>
 
