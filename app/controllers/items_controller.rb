@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     end
 
     def show
+      @store = Store.find(params[:store_id])
       @item = Item.find(params[:id])
     end
 
@@ -22,17 +23,18 @@ class ItemsController < ApplicationController
     def create
       @item = current_user.items.new(item_params)
       if @item.save
-        redirect_to user_items_path #@item
+        redirect_to store_items_path #@item
       else render 'new'
       end
     end
 
     def update
+      @store = Store.find(params[:store_id])
       @item = Item.find(params[:id])
       if @item.update(item_params)
-        redirect_to @item
+       redirect_to store_item_path#@item
       else
-        render 'edit'
+       render 'edit'
       end
   	end
 

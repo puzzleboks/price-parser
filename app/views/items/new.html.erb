@@ -1,6 +1,6 @@
 <h2>Create a New Item</h2>
 
-<%= form_for(@store.items.build) do |f| %>
+<%= form_for([@store, @item]) do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>

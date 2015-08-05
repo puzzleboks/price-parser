@@ -1,4 +1,4 @@
-<h2>Show <%= @item.name %> details</h2><%#= link_to("Edit", edit_store_item_path(@store, item)) %>
+<h2>Show <%= @item.name %> details</h2><%= link_to("Edit", edit_store_item_path(@store, @item)) %>
 <h3>at <%= @item.store.name %></h3>
 <ul>
 <li><%= @item.brand %> brand</li>
