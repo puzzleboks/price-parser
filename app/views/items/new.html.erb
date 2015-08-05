@@ -1,1 +1,43 @@
-<h2>New Item</h2>
+<h2>Create a New Item</h2>
+
+<%= form_for(@store.items.build) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :brand %><br>
+    <%= f.text_field :brand %>
+  </p>
+  <p>
+    <%= f.label :item_type %><br>
+    <%= f.text_field :item_type %>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :total_measure %><br>
+    <%= f.text_field :total_measure %>
+  </p>
+  <p>
+    <%= f.label :unit_of_measure %><br>
+    <%= f.text_field :unit_of_measure %>
+  </p>
+  <p>
+    <%= f.label :price_per_unit %><br>
+    <%= f.text_field :price_per_unit %>
+  </p>
+  <p>
+    <%= f.label :notes %><br>
+    <%= f.text_field :notes %>
+  </p>
+  <p>
+    <%= f.label :price_expiration %><br>
+    <%= f.text_field :price_expiration %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

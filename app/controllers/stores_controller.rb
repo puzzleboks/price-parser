@@ -17,7 +17,7 @@ class StoresController < ApplicationController
 
     def show
       @store = Store.find(params[:id])
-      @items = items
+      @items = @store.items
     end
 
     def new
