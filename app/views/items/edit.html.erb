@@ -1,28 +1,37 @@
-<h1>Edit Item: <%= @item.name %> </h1>
+<h2>Edit Item: <%= @item.name %> </h2>
+<h3>at <%= @item.store.name %></h3>
 
-<%= form_for @item do |f| %>
+<form action="/items/<%= @item.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
 
-  <%= f.label :name %>
-  <%= f.text_field :name, :value => params[:item] %>
-  <%= f.label :brand %>
-  <%= f.text_field :brand, :value => params[:item] %>
-  <%= f.label :item_type %>
-  <%= f.text_field :item_type, :value => params[:item] %>
-  <%= f.label :price %>
-  <%= f.text_field :price, :value => params[:item] %>
-  <%= f.label :total_measure %>
-  <%= f.text_field :total_measure, :value => params[:item] %>
-  <%= f.label :unit_of_measure %>
-  <%= f.text_field :unit_of_measure, :value => params[:item] %>
-  <%= f.label :price_per_unit %>
-  <%= f.text_field :price_per_unit, :value => params[:item] %>
-  <%= f.label :notes %>
-  <%= f.text_field :notes, :value => params[:item] %>
-  <%= f.label :price_expiration %>
-  <%= f.text_field :price_expiration, :value => params[:item] %>
+  <label for="item[name]">Name:</label>
+  <input name="item[name]" value="<%= @item.name %>">
 
-  <%= f.submit %>
+  <label for="item[brand]">Brand:</label>
+  <input name="item[brand]" value="<%= @item.brand %>">
 
-<% end %>
+  <label for="item[item_type]">Item Type:</label>
+  <input name="item[item_type]" value="<%= @item.item_type %>">
 
-<%= link_to 'Delete!', store_item_path(@store, item), method: :delete, class: 'delete' %>
+  <label for="item[price]">Price:</label>
+  <input name="item[price]" value="<%= @item.price %>">
+
+  <label for="item[total_measure]">Total Weight or Volume:</label>
+  <input name="item[total_measure]" value="<%= @item.total_measure %>">
+
+  <label for="item[unit_of_measure]">Unit of Measure:</label>
+  <input name="item[unit_of_measure]" value="<%= @item.unit_of_measure %>">
+
+  <label for="item[price_per_unit]">Price Per Unit of Measure:</label>
+  <input name="item[price_per_unit]" value="<%= @item.price_per_unit %>">
+
+  <label for="item[notes]">Notes:</label>
+  <input name="item[notes]" value="<%= @item.notes %>">
+
+  <label for="item[price_expiration]">Price Expiration Date:</label>
+  <input name="item[price_expiration]" value="<%= @item.price_expiration %>">
+
+<form action="/items/<%= @item.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input class="button-delete" type="submit" value="Delete!">
+</form>
