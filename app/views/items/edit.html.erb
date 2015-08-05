@@ -1,1 +1,28 @@
-<h2>Edit Item</h2>
+<h1>Edit Item: <%= @item.name %> </h1>
+
+<%= form_for @item do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, :value => params[:item] %>
+  <%= f.label :brand %>
+  <%= f.text_field :brand, :value => params[:item] %>
+  <%= f.label :item_type %>
+  <%= f.text_field :item_type, :value => params[:item] %>
+  <%= f.label :price %>
+  <%= f.text_field :price, :value => params[:item] %>
+  <%= f.label :total_measure %>
+  <%= f.text_field :total_measure, :value => params[:item] %>
+  <%= f.label :unit_of_measure %>
+  <%= f.text_field :unit_of_measure, :value => params[:item] %>
+  <%= f.label :price_per_unit %>
+  <%= f.text_field :price_per_unit, :value => params[:item] %>
+  <%= f.label :notes %>
+  <%= f.text_field :notes, :value => params[:item] %>
+  <%= f.label :price_expiration %>
+  <%= f.text_field :price_expiration, :value => params[:item] %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= link_to 'Delete!', store_item_path(@store, item), method: :delete, class: 'delete' %>
