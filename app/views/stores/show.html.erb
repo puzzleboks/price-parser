@@ -1,5 +1,25 @@
 <h1>Show Store Details</h1>
 
 <ul>
-<li><%= @store.name %></li> <%= link_to("Edit", edit_user_store_path(current_user, @store), :class => 'action edit') %>
+<li><%= @store.name %></li> <%= link_to("Edit", edit_store_path(@store), :class => 'action edit') %>
+</ul>
+
+<h2>Items Listing</h2>
+<%= form_for(Store.items.build) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<ul>
+  <% @items.each do |item| %>
+  <li><%= item.name %></li>
+  <%= link_to("Show", store_item_path(item)) %>
+  <%#= link_to("Edit", '#', :class => 'action edit') %>
+  <%#= link_to("Delete", store_path(store), :class => 'action delete') %>
+  <% end %>
 </ul>

@@ -6,12 +6,10 @@ Rails.application.routes.draw do
   devise_for :users, :path => 'accounts'
 
   # next post resource under user
-  resources :users do
     resources :stores do
       resources :items
-  
+
     end
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

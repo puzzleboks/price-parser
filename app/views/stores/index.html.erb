@@ -1,5 +1,5 @@
 <h1>Listing your stores</h1>
-<%= form_for([current_user, current_user.stores.build]) do |f| %>
+<%= form_for(current_user.stores.build) do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -12,7 +12,7 @@
 <ul>
   <% @stores.each do |store| %>
   <li><%= store.name %></li>
-  <%= link_to("Show", user_store_path(current_user, store)) %>
+  <%= link_to("Show", store_path(store)) %>
   <%#= link_to("Edit", '#', :class => 'action edit') %>
   <%#= link_to("Delete", store_path(store), :class => 'action delete') %>
   <% end %>

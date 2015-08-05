@@ -17,6 +17,7 @@ class StoresController < ApplicationController
 
     def show
       @store = Store.find(params[:id])
+      @items = items
     end
 
     def new
@@ -30,7 +31,7 @@ class StoresController < ApplicationController
     def create
       @store = current_user.stores.new(store_params)
       if @store.save
-        redirect_to user_stores_path #@store
+        redirect_to stores_path #@store
       else render 'new'
       end
     end
@@ -47,7 +48,7 @@ class StoresController < ApplicationController
     def destroy
       @store = Store.find(params[:id])
       @store.destroy
-      redirect_to user_stores_path
+      redirect_to stores_path
     end
 
     private
