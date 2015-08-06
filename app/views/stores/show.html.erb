@@ -1,6 +1,6 @@
 <h1><%= @store.name %> <%= link_to("(edit)", edit_store_path(@store)) %></h1>
 
-<h2>Items Listing</h2><%= link_to("Create", new_store_item_path(@store)) %>
+<h2>Items <%= link_to("(create)", new_store_item_path(@store)) %></h2>
 <ul>
   <% @items.each do |item| %>
   <li><%= item.name %></li>
