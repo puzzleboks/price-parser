@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
 
     def new
       @item = Item.new
+      @store = Store.find(params[:store_id])
     end
 
     def edit
@@ -22,12 +23,14 @@ class ItemsController < ApplicationController
 
     def create
       @store = Store.find(params[:store_id])
-      @item = Item.create!(item_params.merge(store: @artist))
+      @item = @store.items.create(item_params)
+      # Item.create!(item_params.merge(store: @store))
       # @store.items.new(item_params)
-      if @item.save
-        redirect_to store_items_path #@item
-      else render 'new'
-      end
+      # if @item.save
+      redirect_to store_items_path(@store) #@item
+      # else render 'new'
+      #end
+      # @store = current_user.stores.new(store_params)
     end
 
     def update
