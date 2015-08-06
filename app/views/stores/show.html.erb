@@ -1,8 +1,4 @@
-<h1>Show Store Details</h1>
-
-<ul>
-<li><%= @store.name %></li> <%= link_to("Edit", edit_store_path(@store)) %>
-</ul>
+<h1><%= @store.name %> <%= link_to("(edit)", edit_store_path(@store)) %></h1>
 
 <h2>Items Listing</h2><%= link_to("Create", new_store_item_path(@store)) %>
 <ul>
