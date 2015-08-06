@@ -21,7 +21,9 @@ class ItemsController < ApplicationController
     end
 
     def create
-      @item = current_user.items.new(item_params)
+      @store = Store.find(params[:store_id])
+      @item = Item.create!(item_params.merge(store: @artist))
+      # @store.items.new(item_params)
       if @item.save
         redirect_to store_items_path #@item
       else render 'new'
@@ -41,12 +43,12 @@ class ItemsController < ApplicationController
     def destroy
       @item = Item.find(params[:id])
       @item.destroy
-      redirect_to user_items_path
+      redirect_to store_items_path
     end
 
     private
     def item_params
-      params.require(:item).permit(:name)
+      params.require(:item).permit(:name, :brand, :item_type, :price, :total_measure, :unit_of_measure, :price_per_unit, :notes, :price_expiration)
     end
 
 end
