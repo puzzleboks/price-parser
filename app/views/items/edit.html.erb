@@ -35,7 +35,8 @@
 </form>
 
 
-<form action="/items/<%= @item.id %>" method="post">
+<form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="delete">
   <input class="button-delete" type="submit" value="Delete!">
 </form>

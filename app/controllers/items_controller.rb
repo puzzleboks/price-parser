@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
     end
 
     def edit
+      @store = Store.find(params[:store_id])
       @item = Item.find(params[:id])
     end
 
@@ -27,7 +28,7 @@ class ItemsController < ApplicationController
       # Item.create!(item_params.merge(store: @store))
       # @store.items.new(item_params)
       # if @item.save
-      redirect_to store_items_path(@store) #@item
+      redirect_to store_path(@store) #@item
       # else render 'new'
       #end
       # @store = current_user.stores.new(store_params)
@@ -37,16 +38,17 @@ class ItemsController < ApplicationController
       @store = Store.find(params[:store_id])
       @item = Item.find(params[:id])
       if @item.update(item_params)
-       redirect_to store_item_path#@item
+       redirect_to store_item_path #@item
       else
        render 'edit'
       end
   	end
 
     def destroy
+      @store = Store.find(params[:store_id])
       @item = Item.find(params[:id])
       @item.destroy
-      redirect_to store_items_path
+      redirect_to store_path(@store)
     end
 
     private
