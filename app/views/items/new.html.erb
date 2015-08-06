@@ -33,8 +33,10 @@
     <%= f.submit %>
   </p>
 <% end %>
+<%#= link_to("<< Back to items list", {:action => 'show'}, :class => 'back-link') %>
+<%= link_to '<< Back to store items', @store %>
 <!-- <p> -->
-  <%#= f.label :price_per_unit %><br>
+  <!-- <%#= f.label :price_per_unit %><br> -->
   <%#= f.text_field :price_per_unit %>
 <!-- </p> -->
 <!-- <p>
