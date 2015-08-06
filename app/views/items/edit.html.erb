@@ -1,5 +1,4 @@
-<h2>Edit Item: <%= @item.name %> </h2>
-<h3>at <%= @item.store.name %></h3>
+<h2>Edit <%= @item.name %> at <%= @item.store.name %></h2>
 
 <form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -23,14 +22,14 @@
   <label for="item[unit_of_measure]">Unit of Measure:</label>
   <input name="item[unit_of_measure]" value="<%= @item.unit_of_measure %>">
 
-  <label for="item[price_per_unit]">Price Per Unit of Measure:</label>
-  <input name="item[price_per_unit]" value="<%= @item.price_per_unit %>">
+  <!-- <label for="item[price_per_unit]">Price Per Unit of Measure:</label>
+  <input name="item[price_per_unit]" value="<%#= @item.price_per_unit %>"> -->
 
   <label for="item[notes]">Notes:</label>
   <input name="item[notes]" value="<%= @item.notes %>">
 
-  <label for="item[price_expiration]">Price Expiration Date:</label>
-  <input name="item[price_expiration]" value="<%= @item.price_expiration %>">
+  <!-- <label for="item[price_expiration]">Price Expiration Date:</label>
+  <input name="item[price_expiration]" value="<%#= @item.price_expiration %>"> -->
   <input type="submit">
 </form>
 

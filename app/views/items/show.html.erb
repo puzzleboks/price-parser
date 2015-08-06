@@ -1,11 +1,12 @@
-<h2>Show <%= @item.name %> details</h2><%= link_to("Edit", edit_store_item_path(@store, @item)) %>
+<h2><%= @item.name %> details at <%= @item.store.name %></h2><%= link_to("Edit", edit_store_item_path(@store, @item)) %>
 <h3>at <%= @item.store.name %></h3>
 <ul>
 <li><%= @item.brand %> brand</li>
 <li><%= @item.item_type %></li>
 <li>$<%= @item.price %></li>
 <li><%= @item.total_measure %> <%= @item.unit_of_measure %>s</li>
-<li>$<%= @item.price_per_unit %> per <%= @item.unit_of_measure %></li>
+<li>$<%= (@item.price/@item.total_measure).round(4) %> per <%= @item.unit_of_measure %></li>
 <li><%= @item.notes %></li>
 <!-- <li><%#= @item.price_expiration %></li> -->
+<%#= @item.price_per_unit %>
 </ul>
