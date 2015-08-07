@@ -1,5 +1,5 @@
 <%= link_to 'Edit or Cancel Your Account', edit_user_registration_path %>
-<h2>Your stores</h2>
+<h2 id="primary">Your stores</h2>
 <%= form_for(current_user.stores.build) do |f| %>
   <p>
     <%= f.label :name %><br>
@@ -10,11 +10,9 @@
   </p>
 <% end %>
 
-<ul>
   <% @stores.each do |store| %>
-  <li><%= store.name %>  <%= link_to("Show", store_path(store)) %></li>
+  <div id="primary">
+  <%= store.name %>  <%= link_to("Show", store_path(store)) %>
+  </div>
 
-  <%#= link_to("Edit", '#', :class => 'action edit') %>
-  <%#= link_to("Delete", store_path(store), :class => 'action delete') %>
-  <% end %>
-</ul>
+    <% end %>

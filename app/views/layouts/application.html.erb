@@ -6,11 +6,14 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<h1>PriceParser</h1>
-<body>
-<h4><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h4>
+<h1 id="primary">PriceParser</h1>
+<body id="primary">
 
 <%= yield %>
+
+<div id="signout">
+  <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
+</div>
 
 </body>
 </html>

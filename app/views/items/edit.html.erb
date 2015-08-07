@@ -1,40 +1,40 @@
-<h2>Edit <%= @item.name %> at <%= @item.store.name %></h2>
+<h2 id="primary">Edit <%= @item.name %> at <%= @item.store.name %></h2>
 
-<form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post">
+<form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post"  id="primary">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="put">
 
   <label for="item[name]">Name:</label>
   <input name="item[name]" value="<%= @item.name %>">
-
+<br>
   <label for="item[brand]">Brand:</label>
   <input name="item[brand]" value="<%= @item.brand %>">
-
+<br>
   <label for="item[item_type]">Item Type:</label>
   <input name="item[item_type]" value="<%= @item.item_type %>">
-
+<br>
   <label for="item[price]">Price:</label>
   <input name="item[price]" value="<%= @item.price %>">
-
+<br>
   <label for="item[total_measure]">Total Weight or Volume:</label>
   <input name="item[total_measure]" value="<%= @item.total_measure %>">
-
+<br>
   <label for="item[unit_of_measure]">Unit of Measure:</label>
   <input name="item[unit_of_measure]" value="<%= @item.unit_of_measure %>">
-
+<br>
   <!-- <label for="item[price_per_unit]">Price Per Unit of Measure:</label>
   <input name="item[price_per_unit]" value="<%#= @item.price_per_unit %>"> -->
 
   <label for="item[notes]">Notes:</label>
   <input name="item[notes]" value="<%= @item.notes %>">
-
+<br>
   <!-- <label for="item[price_expiration]">Price Expiration Date:</label>
   <input name="item[price_expiration]" value="<%#= @item.price_expiration %>"> -->
   <input type="submit">
 </form>
 
 
-<form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post">
+<form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post"  id="primary">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="delete">
   <input class="button-delete" type="submit" value="Delete!">

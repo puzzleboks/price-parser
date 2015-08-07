@@ -1,4 +1,4 @@
-<h2>Edit Store: <%= @store.name %> </h2>
+<h2 id="primary">Edit: <%= @store.name %> </h2>
 
 <%= form_for @store do |f| %>
 
@@ -8,8 +8,9 @@
   <%= f.submit %>
 
 <% end %>
-<br>
+<div id=primary>
 <%= link_to 'Delete!', store_path(@store), method: :delete, class: 'delete' %>
-<br>
-<br>
+</div>
+<div id=primary>
 <%= link_to '<< Back to store items', @store %>
+</div>
