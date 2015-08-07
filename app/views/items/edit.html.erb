@@ -1,44 +1,37 @@
 <h2 id="primary">Edit <%= @item.name %> at <%= @item.store.name %></h2>
 
-<form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post"  id="primary">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="put">
+<%= form_for edit_store_item_path(@store, @item) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <label for="item[name]">Name:</label>
-  <input name="item[name]" value="<%= @item.name %>">
-<br>
-  <label for="item[brand]">Brand:</label>
-  <input name="item[brand]" value="<%= @item.brand %>">
-<br>
-  <label for="item[item_type]">Item Type:</label>
-  <input name="item[item_type]" value="<%= @item.item_type %>">
-<br>
-  <label for="item[price]">Price:</label>
-  <input name="item[price]" value="<%= @item.price %>">
-<br>
-  <label for="item[total_measure]">Total Weight or Volume:</label>
-  <input name="item[total_measure]" value="<%= @item.total_measure %>">
-<br>
-  <label for="item[unit_of_measure]">Unit of Measure:</label>
-  <input name="item[unit_of_measure]" value="<%= @item.unit_of_measure %>">
-<br>
-  <!-- <label for="item[price_per_unit]">Price Per Unit of Measure:</label>
-  <input name="item[price_per_unit]" value="<%#= @item.price_per_unit %>"> -->
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
 
-  <label for="item[notes]">Notes:</label>
-  <input name="item[notes]" value="<%= @item.notes %>">
-<br>
-  <!-- <label for="item[price_expiration]">Price Expiration Date:</label>
-  <input name="item[price_expiration]" value="<%#= @item.price_expiration %>"> -->
-  <input type="submit">
-</form>
+  <%= f.label :item_type %>
+  <%= f.text_field :item_type %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+
+  <%= f.label :total_measure %>
+  <%= f.text_field :total_measure %>
+
+  <%= f.label :unit_of_measure %>
+  <%= f.text_field :unit_of_measure %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= form_for store_item_path(@item, @store), url: {action: "destroy"}, method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>
 
 
-<form action="/stores/<%= @item.store.id %>/items/<%= @item.id %>" method="post"  id="primary">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="delete">
-  <input class="button-delete" type="submit" value="Delete!">
-</form>
+
 
 
 <%= link_to '<< Back to store items', @store %>
